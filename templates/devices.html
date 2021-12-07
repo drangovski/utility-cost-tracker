@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="devices">
+	<div class="heading">
+		<div class="page-icon">
+			<span class="it-icon pe-7s-plug pe-3x pe-va pe-fw"></span>
+		</div>
+		<h1>Devices</h1>
+		<p>Manage your devices from this panel. Here you can add or remove devices for monitoring.</p>
+	</div>
+	
+	<!-- Row -->
+	<div class="row devices-add">
+		{% for device in devices %}
+		<!-- Devices status -->
+		<div class="devices-status c3">
+			<div>
+				<!-- Device -->
+				<div class="device {% if device.monitoring %}added{% else %}add{% endif %}">
+					<p>{{ device.name }}</p>
+					<a class="power add-device-btn" {% if device.monitoring %} href="{% url 'monitor_device' device.device_id %}" {% else %} href="#setWatts" data-lity {% endif %} data-name="{{ device.name }}" data-devid="{{ device.device_id }}">{% if device.monitoring %}<span class="pe-7s-less pe-2x pe-va pe-fw"></span>{% else %}<span class="pe-7s-plus pe-2x pe-va pe-fw"></span>{% endif %}</a>
+				</div>
+			</div>						
+		</div>
+		{% endfor %}		
+	</div>
+</div>
+ <div id="setWatts" style="background:#fff" class="lity-hide">
+    <div class="watts-form">
+        <form method="POST" action="{% url 'devices' %}">
+            {% csrf_token %}
+            <span class="watts-popup-title"></span>
+            <div class="form-group">
+            	<input type="hidden" value="" id="devId">
+                <span>Set device Watts</span>
+                {{ form.watts }}
+                <input type="hidden" class="devId" name="device_id" value="">
+            </div>
+            <div class="form-group">
+            	<button name="setwatts" type="submit">Set</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+	$('.add-device-btn').on('click', function(e) {
+
+		var name = $(this).data('name');
+		var devId = $(this).data('devid')
+
+		$('.watts-popup-title').empty()
+		$('.watts-popup-title').append(name)
+
+		$('.devId').val(devId)
+	});
+</script>
+
+{% endblock %}

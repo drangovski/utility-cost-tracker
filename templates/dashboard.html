@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="dashboard">
+	<div class="heading">
+		<div class="page-icon">
+			<span class="it-icon pe-7s-home pe-3x pe-va pe-fw"></span>
+		</div>
+		<h1>Dashboard</h1>
+		<p>An informative panel for your devices management and expenses monitoring</p>
+	</div>
+	<!-- Row -->
+	<div class="row">
+		<!-- Info tiles -->
+		<div class="info-tiles">
+			<!-- Tile -->
+			<div class="info-tile c3">
+				<div>
+					<span class="it-icon pe-7s-plug pe-3x pe-va pe-fw"></span>
+					<span class="it-value">{{ devices_count }}</span>
+					<p>Devices</p>
+				</div>
+			</div>
+			<!-- Tile -->
+			<div class="info-tile c3">
+				<div>
+					<span class="it-icon pe-7s-clock pe-3x pe-va pe-fw"></span>
+					<span class="it-value">{{ total_kwh|floatformat:"-3" }}</span>
+					<p>Total kWh</p>
+				</div>
+			</div>
+			<!-- Tile -->
+			<div class="info-tile c3">
+				<div>
+					<span class="it-icon pe-7s-server pe-3x pe-fw"></span>
+					<span class="it-value">{{ price.currency_abbr }}{%if price.kwh_price %}{{ price.kwh_price }}{% else %}0{% endif %}</span>
+					<p>Price per kWh</p>
+				</div>
+			</div>
+			<!-- Tile -->
+			<div class="info-tile c3">
+				<div>
+					<span class="it-icon pe-7s-cash pe-3x pe-va pe-fw"></span>
+					<span class="it-value">{{ price.currency_abbr }}{{ total_cost|floatformat:"-3" }}</span>
+					<p>Total Cost</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Row -->
+	<div class="row">
+		<!-- Devices status -->
+		<div class="devices-status c3">
+			<div>
+				{% for device in devices %}
+				<!-- Device -->
+				<div class="device">
+					<span class="status {% if device.status %}on{% endif %}">{% if device.status %}On{%else%}Off{% endif %}</span>
+					<p>{{ device.name }}</p>
+					<a class="power" href="{% url 'power_device' device.device_id %}"><span class="pe-7s-power pe-2x pe-va pe-fw"></span></a>
+				</div>
+				{% endfor %}
+				<!-- Device -->
+				<a href="{% url 'devices' %}" class="add-device">Add new device</a>
+			</div>						
+		</div>
+		<!-- Devices Log -->
+		<div class="devices-log c9">
+			<div>
+				<div class="table-header">
+					<span>Device Log</span>
+				</div>
+				<table>
+					<thead>
+						<tr>
+							<th>Device</th>
+							<th>Watts</th>
+							<th>Powered On</th>
+							<th>Powered Off</th>
+							<th>Consumption</th>
+							<th>Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% if device_log %}
+						{% for entry in device_log %}
+						<!-- Device row -->
+						<tr>
+							<td>
+								<span>{{ entry.device.name }}</span>
+							</td>
+							<td>
+								<span>{{ entry.device.watts }} W</span>
+							</td>
+							<td>
+								<span><b>{{ entry.powered_on.time|date:'h:i A' }}</b> &middot; {{ entry.powered_on.date|date:'j F Y' }}</span>
+							</td>
+							<td>
+								<span><b>{{ entry.powered_off.time|date:'h:i A' }}</b> &middot; {{ entry.powered_off.date|date:'j F Y' }}</span>
+							</td>
+							<td>
+								<span>{{ entry.consumption|floatformat:"-5" }} kWh</span>
+							</td>
+							<td>
+								<span>{{ price.currency_abbr }}{{ entry.cost|floatformat:"-5" }}</span>
+							</td>
+						</tr>
+						{% endfor %}
+					{% else %}
+						<tr>
+							<td>There are no log entries yet.</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					{% endif %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
