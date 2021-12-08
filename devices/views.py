@@ -10,7 +10,7 @@ from .forms import *
 # Import Logging
 import logging
 
-# Import connection configurayion (.env file) & import TuyaOpenAPI and Logger
+# Import connection configuration (.env file) & import TuyaOpenAPI and Logger
 from .env import ACCESS_ID, ACCESS_KEY, API_ENDPOINT
 from tuya_connector import TuyaOpenAPI, TUYA_LOGGER
 
