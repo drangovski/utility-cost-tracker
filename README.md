@@ -25,7 +25,7 @@ Key points:
 
 * Create your virtual environment.
 * Start a Django project
-* Checkout the settings for Secret Key and Database settings (SECRET_KEY is removed from the current settings.py)
+* Check out the settings for Secret Key and Database settings (SECRET_KEY is removed from the current settings.py)
 * Install requirements
 ```
 pip install -r requirements.txt
