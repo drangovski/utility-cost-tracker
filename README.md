@@ -19,7 +19,9 @@ To read more details on the process so far and some tips for setting up this pro
 
 ## Installation
 
-I consider that you have the basic understanding on how to set up a Django project, so I won’t get into the details here on how to do it. Key points.
+I consider that you have the basic understanding on how to set up a Django project, so I won’t get into the details here on how to do it.
+
+Key points:
 
 * Create your virtual environment.
 * Start a Django project
