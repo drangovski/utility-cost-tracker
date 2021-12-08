@@ -40,7 +40,13 @@ API_ENDPOINT = "https://openapi.tuyaeu.com"  # note EU after tuya
 MQ_ENDPOINT = "wss://mqe.tuyaeu.com:8285/"  # note EU after tuya
 ```
 
+---
 
+If you liked this project, please consider subscribing to my mailing list - That will be a great supportive move and you won't miss any update in the future. Plus occasionally you will receive exclusive, subscriber-only content: Behind the scenes information on upcoming development projects, ui/ux tips & tricks and so on. No spam, no BS.
+
+To subscribe please visit my TinyLetter profile.
+
+https://tinyletter.com/drango
 
 
 
