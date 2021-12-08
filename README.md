@@ -1,3 +1,6 @@
+
+![Utility Cost Tracker cover](https://user-images.githubusercontent.com/13369413/145307242-52b80cd9-967f-4a38-936b-c529465e538d.png)
+
 # Utility Cost Tracker
 
 Utility Cost Tracker connects various smart home devices to Django application. 
