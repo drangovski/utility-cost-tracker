@@ -33,7 +33,7 @@ ACCESS_ID = "<Insert your Tuya Cloud ACCESS_ID here>"
 ACCESS_KEY = "<Insert your Tuya Cloud ACCESS_KEY here>"
 API_ENDPOINT = "https://openapi.tuyaeu.com"  # note EU after tuya
 MQ_ENDPOINT = "wss://mqe.tuyaeu.com:8285/"  # note EU after tuya
-
+```
 
 
 
