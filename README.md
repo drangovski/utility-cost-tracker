@@ -14,7 +14,7 @@ Feel free to play with it and make your own versions. I'll be glad if you let me
 
 To read more details on the process so far and some tips for setting up this project, you can check this article:
 
-[Link to the article](https://dev.to/drango/utility-cost-tracker-for-smart-home-devices-with-python-and-django-4llo)
+###[Link to the article](https://dev.to/drango/utility-cost-tracker-for-smart-home-devices-with-python-and-django-4llo)
 
 
 ## Installation
