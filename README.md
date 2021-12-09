@@ -3,7 +3,7 @@
 
 # Utility Cost Tracker
 
-Utility Cost Tracker connects various smart home devices to Django application. 
+Utility Cost Tracker connects various smat home devices to Django application. 
 Through this project you can easily control them, track the activity sessions duration for each device and based on that, calculate the cost for each activity session.
 
 UCT connects the devices through Tuya IoT Platform and it is using their Cloud API endpoints in order to fetch the information and status of any devices that are connecting on the same network, as well as to send commands for controling devices' state.
@@ -14,7 +14,7 @@ Feel free to play with it and make your own versions. I'll be glad if you let me
 
 To read more details on the process so far and some tips for setting up this project, you can check this article:
 
-###[Link to the article](https://dev.to/drango/utility-cost-tracker-for-smart-home-devices-with-python-and-django-4llo)
+### **[Link to the article](https://dev.to/drango/utility-cost-tracker-for-smart-home-devices-with-python-and-django-4llo)**
 
 
 ## Installation
